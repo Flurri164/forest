@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Source Code Pro", monospace;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    text-transform: uppercase;
+}
+:root {
+--index: calc(1vw + 1vh)
+}
+body {
+    background-color: black;
+    color: white;
+}
+.layers {
+    perspective: 1000px;
+    overflow: hidden;
+}
+.layers_container {
+    height: 100vh;
+    transform-style: preserve-3d;
+    transform: rotateX(var(--moving-y)) rotateY(var(--moving-x));
+    will-change: transform;
+}
+.item {
+    position: absolute;
+    inset: calc(var(--index) * -7);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.forest {
+    background-image: url('img/forest.jpg');
+    transform: translateZ(-55px);
+
+}
+.tree {
+    background-image: url('./img/tree.png');
+    transform: translateZ(100px) scale(.9);
+}
+.text {
+    transform: translateZ(200px) ;
+}
+.textt {
+    font-size: calc(var(--index) * 1.6);
+    text-align: center;
+    letter-spacing: calc(var(--index) * .2);
+    line-height: calc(var(--index) * 3.3);
+}
+.textt span {
+    display: block;
+}
+.tree, .sheets, .fog {
+    pointer-events: none;
+}
+.sheets {
+    background-image: url('./img/sheets.png');
+    transform: translateZ(300px) scale(.8);
+}
+.fog {
+    background-image: url('./img/fog.png');
+    transform: translateZ(300px);
+}
+.item-text {
+    display: flex;
+    align-items: center;
+    z-index: 1;
+}
+.p {
+    font-size: calc(var(--index) * .7);
+}
+button {
+    background-color: unset;
+    color:  white ;
+    padding: calc(var(--index) * 1);
+    border-radius: calc(var(--index) * 2);
+    letter-spacing: calc(var(--index) * .15);
+    font-size: calc(var(--index) * .7);
+    border: solid 2.5px rgb(226, 226, 226) ;
+    cursor: pointer;
+}
